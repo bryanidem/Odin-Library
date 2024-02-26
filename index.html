@@ -7,28 +7,31 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>Library</h1>
+    <h1><img src="images/reading-book.png" alt="">My Library</h1>
     <button class="btn-modal">Add Book</button>
     <div class="library-container">
-      
     </div>
     <dialog>
-      <div>
+      <div class="modal">
+        <p>Add a new book</p>
         <form action="#">
           <label for="bookName">Book Name</label>
-          <input type="text" id="bookName" name="bookName" />
+          <input type="text" id="bookName" name="bookName" required/>
 
           <label for="author">Author</label>
-          <input type="text" id="author" name="author" />
+          <input type="text" id="author" name="author" required/>
 
           <label for="numPages">Number of Pages</label>
-          <input type="text" id="numPages" name="numPages" />
+          <input type="text" id="numPages" name="numPages" required/>
 
-          <label for="read"">Read</label>
+          
+          <label for="read"">Read
+          </label>
           <input type="checkbox"" name="read" id="read">
-
-          <button type="submit">Add Book</button>
-          <button type="button" class="cancel">Cancel</button>
+          <div>
+            <button type="submit">Add Book</button>
+            <button type="button" class="cancel">Cancel</button>
+          </div>
         </form>
       </div>
     </dialog>

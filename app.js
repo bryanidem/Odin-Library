@@ -14,8 +14,10 @@ formAddBook.addEventListener("submit", (e) => {
   e.preventDefault();
   const formData = new FormData(formAddBook);
   const formObject = Object.fromEntries(formData);
+  console.log(formObject.hasOwnProperty("read"));
   const newBook = new Book(formObject);
   addBookToLibrary(newBook, myLibrary);
+  formAddBook.reset();
   createCards();
   modal.close();
 });
@@ -28,7 +30,7 @@ function Book(bookData) {
   this.title = bookData.bookName;
   this.author = bookData.author;
   this.numPages = bookData.numPages;
-  this.read = bookData.read;
+  this.read = bookData.hasOwnProperty("read");
 }
 
 const addBookToLibrary = (book, library) => {
@@ -38,22 +40,50 @@ const addBookToLibrary = (book, library) => {
 
 const createCards = () => {
   libraryContainer.replaceChildren();
-  myLibrary.forEach((book) => {
-    console.log(book);
-    const card = document.createElement("div");
-    const title = document.createElement("p");
-    const author = document.createElement("p");
-    const numPages = document.createElement("p");
+  if (myLibrary.length === 0) {
+    const container = document.createElement("div");
+    const p = document.createElement("p");
+    const img = document.createElement("img");
+    p.textContent = "Your Library is empty";
+    img.src = "images/clip-reading-books.png";
+    container.appendChild(p);
+    container.appendChild(img);
+    container.classList.add("empty-library");
+    libraryContainer.appendChild(container);
+  } else {
+    myLibrary.forEach((book) => {
+      const card = document.createElement("div");
+      const title = document.createElement("p");
+      const author = document.createElement("p");
+      const numPages = document.createElement("p");
+      const infoDiv = document.createElement("div");
+      const read = document.createElement("button");
+      const deleteBtn = document.createElement("button");
+      const deleteDiv = document.createElement("div");
 
-    card.classList.add("card");
+      deleteBtn.classList.add("delete-btn");
+      read.classList.add("read-btn");
+      card.classList.add("card");
 
-    title.textContent = book.title;
-    author.textContent = book.author;
-    numPages.textContent = book.numPages;
+      title.textContent = `Title: ${book.title}`;
+      author.textContent = `Author: ${book.author}`;
+      numPages.textContent = `Number of pages: ${book.numPages}`;
+      read.textContent = book.read ? "read" : "not read";
+      deleteBtn.textContent = "×";
 
-    card.appendChild(title);
-    card.appendChild(author);
-    card.appendChild(numPages);
-    libraryContainer.appendChild(card);
-  });
+      read.classList.add(book.read ? "read-color" : "no-read-color");
+
+      infoDiv.classList.add("info-div");
+      deleteDiv.appendChild(deleteBtn);
+      card.appendChild(deleteDiv);
+      infoDiv.appendChild(title);
+      infoDiv.appendChild(author);
+      infoDiv.appendChild(numPages);
+      card.appendChild(infoDiv);
+      card.appendChild(read);
+      libraryContainer.appendChild(card);
+    });
+  }
 };
+
+createCards();

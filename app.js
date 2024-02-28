@@ -14,8 +14,8 @@ formAddBook.addEventListener("submit", (e) => {
   e.preventDefault();
   const formData = new FormData(formAddBook);
   const formObject = Object.fromEntries(formData);
-  console.log(formObject.hasOwnProperty("read"));
   const newBook = new Book(formObject);
+  newBook.id = Date.now();
   addBookToLibrary(newBook, myLibrary);
   formAddBook.reset();
   createCards();
@@ -26,11 +26,25 @@ btnModalCancel.addEventListener("click", () => {
   modal.close();
 });
 
+libraryContainer.addEventListener("click", (e) => {
+  if (e.target.className === "delete-btn") {
+    console.log(e.target.getAttribute("data-id"));
+    myLibrary.splice(
+      myLibrary.findIndex(
+        (book) => book.id == e.target.getAttribute("data-id")
+      ),
+      1
+    );
+  }
+  createCards();
+});
+
 function Book(bookData) {
   this.title = bookData.bookName;
   this.author = bookData.author;
   this.numPages = bookData.numPages;
   this.read = bookData.hasOwnProperty("read");
+  this.id = Date.now();
 }
 
 const addBookToLibrary = (book, library) => {
@@ -62,6 +76,7 @@ const createCards = () => {
       const deleteDiv = document.createElement("div");
 
       deleteBtn.classList.add("delete-btn");
+      deleteBtn.setAttribute("data-id", book.id);
       read.classList.add("read-btn");
       card.classList.add("card");
 

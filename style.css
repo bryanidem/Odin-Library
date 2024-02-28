@@ -105,6 +105,7 @@ label {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .empty-library > p {
@@ -117,10 +118,14 @@ label {
 }
 
 .library-container {
+  width: 40%;
+  margin: auto;
   background-color: #e7ecef;
-  width: 100%;
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
 }
 
 .card {
@@ -139,7 +144,6 @@ label {
 
 .card > div {
   width: 100%;
-  border: 1px solid red;
   display: flex;
   justify-content: flex-end;
 }
@@ -164,6 +168,10 @@ label {
 .info-div {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
 }
 
 .read-color {

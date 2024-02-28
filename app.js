@@ -35,6 +35,11 @@ libraryContainer.addEventListener("click", (e) => {
       ),
       1
     );
+  } else if (e.target.classList.contains("read-btn")) {
+    const card = myLibrary.find(
+      (book) => book.id == e.target.getAttribute("data-id")
+    );
+    card.read = !card.read;
   }
   createCards();
 });
@@ -77,6 +82,7 @@ const createCards = () => {
 
       deleteBtn.classList.add("delete-btn");
       deleteBtn.setAttribute("data-id", book.id);
+      read.setAttribute("data-id", book.id);
       read.classList.add("read-btn");
       card.classList.add("card");
 

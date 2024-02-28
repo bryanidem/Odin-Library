@@ -13,9 +13,10 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #e7ecef;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 2rem;
+  min-height: 100vh;
 }
 
 h1 {
@@ -27,6 +28,7 @@ h1 {
   gap: 1rem;
   background-color: #003554;
   width: 100%;
+  padding: 10px;
 }
 
 h1 > img {
@@ -39,14 +41,14 @@ button {
   height: 60px;
   border: none;
   border-radius: 8px;
-  background-color: #8b8c89;
+  background-color: #219ebc;
   color: #ffffff;
   font-size: 1.5rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 button:hover {
-  background-color: #003554;
+  background-color: #8d99ae;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
@@ -118,14 +120,11 @@ label {
 }
 
 .library-container {
-  width: 40%;
   margin: auto;
   background-color: #e7ecef;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 2rem;
 }
 
 .card {
@@ -180,4 +179,19 @@ label {
 
 .no-read-color {
   background-color: #f07167;
+}
+
+footer {
+  background-color: #274c77;
+  color: #e7ecef;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+footer > a {
+  color: #32d6ff;
 }

@@ -4,6 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Library</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="head">
+        <h1>My book library</h1>
+        <p>Add new books to your library filling up the following form</p>
+        <form action="#" id="bookForm">
+          <input type="text" name="title" id="book" />
+          <label for="book">Book</label>
+
+          <input type="text" name="author" id="author" />
+          <label for="author">Author</label>
+
+          <select name="read" id="status">
+            <option value="Read">Read</option>
+            <option value="Not read">Not read</option>
+          </select>
+          <label for="status">Status</label>
+
+          <button type="submit">SUBMIT</button>
+        </form>
+      </div>
+      <div class="books">
+        <table id="bookTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Author</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </body>
 </html>

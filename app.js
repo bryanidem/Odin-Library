@@ -1,5 +1,6 @@
 const bookForm = document.getElementById("bookForm");
 const bookTable = document.getElementById("bookTable");
+// const deleteButtons = document.querySelectorAll(".deleteButton");
 
 let myLibrary = [];
 
@@ -8,6 +9,7 @@ class Book {
     this.title = title;
     this.author = author;
     this.read = read;
+    this.id = Date.now().toString();
   }
 }
 
@@ -51,17 +53,29 @@ const handleBookSubmit = (e) => {
     alert("Please fill all the required fields");
     return;
   }
-
   addBookToLibrary(bookData);
   bookForm.reset();
   console.log(myLibrary);
-  renderBooks(myLibrary);
+  renderLibrary(myLibrary);
 };
 
-const renderBooks = (myLibrary) => {
+const renderLibrary = (myLibrary) => {
+  cleanLibrary();
   myLibrary.map((book) => {
     insertRow(book);
   });
+  const deleteButtons = document.querySelectorAll(".deleteButton");
+  deleteButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      console.log(e.target);
+    });
+  });
+};
+
+const cleanLibrary = () => {
+  while (bookTable.firstChild) {
+    bookTable.removeChild(bookTable.lastChild);
+  }
 };
 
 bookForm.addEventListener("submit", handleBookSubmit);

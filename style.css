@@ -1,0 +1,126 @@
+@font-face {
+  font-family: Roboto;
+  src: url(fonts/Roboto-Regular.ttf);
+}
+@font-face {
+  font-family: Roboto-Bold;
+  src: url(fonts/Roboto-Bold.ttf);
+}
+
+@font-face {
+  font-family: Roboto-Light;
+  src: url(fonts/Roboto-Light.ttf);
+}
+
+body {
+  height: 100vh;
+  font-family: Roboto-Light, Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  width: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8rem;
+}
+
+.head {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* padding: 8rem; */
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-family: Roboto-Light, Courier, monospace;
+}
+.intro {
+  font-size: 1.2rem;
+}
+
+#bookForm {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.formInputs {
+  display: flex;
+  gap: 2rem;
+}
+
+input,
+select {
+  width: 280px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+select {
+  width: 90px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.submitButton {
+  width: 90px;
+  height: 40px;
+}
+
+.books {
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+table {
+  width: 100%;
+  border: 1px solid red;
+}
+
+thead > tr {
+  font-family: Roboto-Bold, Courier, monospace;
+  padding: 15px;
+}
+
+thead > tr > th {
+  flex: 1;
+}
+
+tr {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  padding: 15px;
+  border-bottom: 1px solid lightgrey;
+}
+
+td {
+  flex: 1, auto;
+  display: flex;
+}
+
+td {
+  width: 100%;
+}
+
+.deleteButtonDiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

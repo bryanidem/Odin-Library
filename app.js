@@ -30,6 +30,8 @@ const insertRow = (book) => {
   readCell.textContent = book.read;
 
   const deleteCell = document.createElement("td");
+  const deleteButtonDiv = document.createElement("div");
+  deleteButtonDiv.className = "deleteButtonDiv";
   const deleteButton = document.createElement("button");
   deleteButton.className = "deleteButton";
   deleteButton.textContent = "Delete";
@@ -40,7 +42,8 @@ const insertRow = (book) => {
   row.appendChild(titleCell);
   row.appendChild(authorCell);
   row.appendChild(readCell);
-  row.appendChild(deleteButton);
+  deleteButtonDiv.appendChild(deleteButton);
+  row.appendChild(deleteButtonDiv);
 
   bookTable.appendChild(row);
 };

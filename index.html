@@ -11,21 +11,31 @@
     <div class="container">
       <div class="head">
         <h1>My book library</h1>
-        <p>Add new books to your library filling up the following form</p>
+        <p class="intro">
+          Add new books to your library filling up the following form
+        </p>
         <form action="#" id="bookForm">
-          <input type="text" name="title" id="book" />
-          <label for="book">Book</label>
+          <div class="formInputs">
+            <div class="inputGroup">
+              <label for="book">Book</label>
+              <input type="text" name="title" id="book" />
+            </div>
 
-          <input type="text" name="author" id="author" />
-          <label for="author">Author</label>
+            <div class="inputGroup">
+              <label for="author">Author</label>
+              <input type="text" name="author" id="author" />
+            </div>
 
-          <select name="read" id="status">
-            <option value="Read">Read</option>
-            <option value="Not read">Not read</option>
-          </select>
-          <label for="status">Status</label>
+            <div class="inputGroup">
+              <label for="status">Status</label>
+              <select name="read" id="status">
+                <option value="Read">Read</option>
+                <option value="Not read">Not read</option>
+              </select>
+            </div>
+          </div>
 
-          <button type="submit">SUBMIT</button>
+          <button class="submitButton" type="submit">SUBMIT</button>
         </form>
       </div>
       <div class="books">

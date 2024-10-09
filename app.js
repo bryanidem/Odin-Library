@@ -1,6 +1,5 @@
 const bookForm = document.getElementById("bookForm");
 const bookTable = document.getElementById("bookTable");
-// const deleteButtons = document.querySelectorAll(".deleteButton");
 
 let myLibrary = [];
 
@@ -34,8 +33,10 @@ const insertRow = (book) => {
   const deleteButton = document.createElement("button");
   deleteButton.className = "deleteButton";
   deleteButton.textContent = "Delete";
+  deleteButton.addEventListener("click", () => deleteBook(book.id));
   deleteCell.appendChild(deleteButton);
 
+  row.dataset.id = book.id;
   row.appendChild(titleCell);
   row.appendChild(authorCell);
   row.appendChild(readCell);
@@ -64,18 +65,19 @@ const renderLibrary = (myLibrary) => {
   myLibrary.map((book) => {
     insertRow(book);
   });
-  const deleteButtons = document.querySelectorAll(".deleteButton");
-  deleteButtons.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      console.log(e.target);
-    });
-  });
 };
 
 const cleanLibrary = () => {
   while (bookTable.firstChild) {
     bookTable.removeChild(bookTable.lastChild);
   }
+};
+
+const deleteBook = (id) => {
+  console.log(myLibrary);
+  myLibrary = myLibrary.filter((book) => book.id !== id);
+  console.log(myLibrary);
+  renderLibrary(myLibrary);
 };
 
 bookForm.addEventListener("submit", handleBookSubmit);

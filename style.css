@@ -21,6 +21,8 @@ body {
   align-items: center;
   padding: 0;
   margin: 0;
+  background-color: #fffcf2;
+  color: #252422;
 }
 
 .container {
@@ -30,6 +32,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   padding: 8rem;
+  gap: 4rem;
 }
 
 .head {
@@ -77,9 +80,20 @@ select {
   flex-direction: column;
 }
 
-.submitButton {
+button {
   width: 90px;
   height: 40px;
+  border: none;
+  background-color: #ccc5b9;
+}
+
+.deleteButton {
+  background-color: #eb5e28;
+}
+
+button:hover {
+  background-color: #6c584c;
+  color: #fffcf2;
 }
 
 .books {
@@ -90,16 +104,20 @@ select {
 }
 table {
   width: 100%;
-  border: 1px solid red;
 }
 
 thead > tr {
   font-family: Roboto-Bold, Courier, monospace;
   padding: 15px;
+  display: flex;
+  justify-content: space-around;
 }
 
 thead > tr > th {
   flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 tr {
@@ -107,20 +125,34 @@ tr {
   justify-content: space-between;
   text-align: left;
   padding: 15px;
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 1px solid #252422;
 }
 
 td {
   flex: 1, auto;
   display: flex;
-}
-
-td {
   width: 100%;
+  justify-content: center;
 }
 
-.deleteButtonDiv {
+.deleteButtonDiv,
+.readButtonDiv {
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+a {
+  color: #eb5e28;
+  text-decoration: none;
+  font-family: Roboto, Courier, monospace;
+}
+
+a:hover {
+  color: #252422;
+}
+
+input {
+  padding: 0.2rem 1rem;
+  font-family: Roboto, Courier, monospace;
 }

@@ -27,7 +27,13 @@ const insertRow = (book) => {
   authorCell.textContent = book.author;
 
   const readCell = document.createElement("td");
-  readCell.textContent = book.read;
+  const readCellDiv = document.createElement("div");
+  readCellDiv.className = "readButtonDiv";
+  const readButton = document.createElement("button");
+  readButton.className = "readButton";
+  readButton.textContent = book.read;
+  readButton.addEventListener("click", () => updateReadStatus(book.id));
+  readCell.appendChild(readButton);
 
   const deleteCell = document.createElement("td");
   const deleteButtonDiv = document.createElement("div");
@@ -38,9 +44,10 @@ const insertRow = (book) => {
   deleteButton.addEventListener("click", () => deleteBook(book.id));
   deleteCell.appendChild(deleteButton);
 
-  row.dataset.id = book.id;
   row.appendChild(titleCell);
   row.appendChild(authorCell);
+  readCellDiv.appendChild(readButton);
+  readCell.appendChild(readCellDiv);
   row.appendChild(readCell);
   deleteButtonDiv.appendChild(deleteButton);
   row.appendChild(deleteButtonDiv);
@@ -60,10 +67,10 @@ const handleBookSubmit = (e) => {
   addBookToLibrary(bookData);
   bookForm.reset();
   console.log(myLibrary);
-  renderLibrary(myLibrary);
+  renderLibrary();
 };
 
-const renderLibrary = (myLibrary) => {
+const renderLibrary = () => {
   cleanLibrary();
   myLibrary.map((book) => {
     insertRow(book);
@@ -76,11 +83,19 @@ const cleanLibrary = () => {
   }
 };
 
+const updateReadStatus = (id) => {
+  const bookIndex = myLibrary.findIndex((book) => book.id === id);
+  myLibrary[bookIndex].read =
+    myLibrary[bookIndex].read === "Read" ? "Not read" : "Read";
+  console.log(myLibrary);
+  renderLibrary();
+};
+
 const deleteBook = (id) => {
   console.log(myLibrary);
   myLibrary = myLibrary.filter((book) => book.id !== id);
   console.log(myLibrary);
-  renderLibrary(myLibrary);
+  renderLibrary();
 };
 
 bookForm.addEventListener("submit", handleBookSubmit);

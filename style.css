@@ -68,7 +68,9 @@ select {
   width: 280px;
   height: 30px;
   border-radius: 5px;
-  border: 1px solid gray;
+  border: 1px solid #ccc5b9;
+  padding: 0.2rem 1rem;
+  font-family: Roboto, Courier, monospace;
 }
 
 select {
@@ -88,7 +90,12 @@ button {
 }
 
 .deleteButton {
-  background-color: #eb5e28;
+  background-color: #7d4f50;
+  color: #fffcf2;
+}
+
+.deleteButton:hover {
+  background-color: #80180f;
 }
 
 button:hover {
@@ -150,9 +157,4 @@ a {
 
 a:hover {
   color: #252422;
-}
-
-input {
-  padding: 0.2rem 1rem;
-  font-family: Roboto, Courier, monospace;
 }
